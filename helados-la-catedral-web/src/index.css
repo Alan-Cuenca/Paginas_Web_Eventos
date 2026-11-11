@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --color-catedral-bg: #FAFAFA;
+  --color-catedral-magenta: #E32074;
+  --color-catedral-morado: #662D8F;
+  --color-catedral-naranja: #F58220;
+  --color-catedral-text: #1F2937;
+}
+
+body {
+  background-color: #FAFAFA;
+  color: #1F2937;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Apple HIG spring ease */
+.ios-spring {
+  transition: all 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Custom soft shadow */
+.shadow-catedral {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}

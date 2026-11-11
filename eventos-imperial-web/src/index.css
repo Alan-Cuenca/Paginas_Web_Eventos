@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-perla: #F4F2F7;
+  --color-ciruela: #685A7C;
+  --color-ciruela-dark: #554866;
+  --color-ciruela-light: #7E7092;
+  --color-indigo-dark: #2B2338;
+  --color-malva: #D3CDD9;
+  --color-malva-subtle: #E8E4EC;
+  --color-malva-muted: #7A7085;
+
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --shadow-imperial: 0 20px 40px -15px rgba(104, 90, 124, 0.08);
+  --shadow-imperial-lg: 0 28px 56px -16px rgba(104, 90, 124, 0.14);
+  --shadow-glass: 0 8px 32px 0 rgba(104, 90, 124, 0.06);
+
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  body {
+    background-color: #F4F2F7;
+    color: #2B2338;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-serif-luxury {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Smooth Transitions with Apple-style spring curve */
+.transition-spring {
+  transition: all 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Subtle liquid glass helper */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
