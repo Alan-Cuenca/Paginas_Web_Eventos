@@ -49,3 +49,12 @@ npm --prefix helados-la-catedral-web run build
 ---
 
 *© 2026 EVENTRA SaaS Platform — Ecosistema Multi-Tenant.*
+
+
+## Demos en línea
+
+| Sitio | Carpeta | Enlace |
+|---|---|---|
+| Eventos Imperial | `eventos-imperial-web` | |
+| Helados La Catedral | `helados-la-catedral-web` | |
+| Calzado Demo | `demo-catalogo-calzado` | |
