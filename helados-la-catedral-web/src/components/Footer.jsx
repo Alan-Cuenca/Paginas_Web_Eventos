@@ -1,6 +1,9 @@
 import React from 'react';
 import { MapPin, Clock, Heart } from 'lucide-react';
 
+// Opcional: si VITE_PORTAL_URL no existe o está vacía, el botón del portal no se muestra.
+const portalUrl = import.meta.env.VITE_PORTAL_URL?.trim();
+
 export default function Footer() {
   return (
     <footer id="ubicacion" className="scroll-mt-24 border-t border-gray-200/60 bg-white pt-20 pb-12">
@@ -70,13 +73,15 @@ export default function Footer() {
           {/* Hiper-discreet text link: Light gray, almost invisible until hover */}
           <div className="flex items-center gap-6">
             <span className="text-[11px] text-gray-300">Ambato, Tungurahua</span>
-            <a 
-              href="http://localhost:5173/portal/helados-la-catedral/login" 
-              className="text-gray-300/60 hover:text-gray-500 transition-colors duration-300 text-[11px] cursor-pointer selection:bg-transparent"
-              title="Acceso Institucional"
-            >
-              Portal de Empleados
-            </a>
+            {portalUrl && (
+              <a 
+                href={portalUrl}
+                className="text-gray-300/60 hover:text-gray-500 transition-colors duration-300 text-[11px] cursor-pointer selection:bg-transparent"
+                title="Acceso Institucional"
+              >
+                Portal de Empleados
+              </a>
+            )}
           </div>
         </div>
 
