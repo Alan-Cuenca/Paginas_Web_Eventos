@@ -1,6 +1,9 @@
 import React from 'react';
 import { ArrowUpRight, Phone, Mail, MapPin } from 'lucide-react';
 
+// Opcional: si VITE_PORTAL_URL no existe o está vacía, el botón del portal no se muestra.
+const portalUrl = import.meta.env.VITE_PORTAL_URL?.trim();
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -104,16 +107,18 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-6">
-            <span className="text-[#D3CDD9]">•</span>
+            {portalUrl && <span className="text-[#D3CDD9]">•</span>}
             {/* The Discreet Bridge to EVENTRA SaaS */}
-            <a
-              href="http://localhost:5173/portal/eventos-imperial/login"
-              className="text-[#7A7085] hover:text-[#2B2338] underline underline-offset-4 decoration-[#D3CDD9] hover:decoration-[#685A7C] transition-all flex items-center gap-1"
-              title="Acceso exclusivo al sistema de gestión para clientes con contrato y personal de servicio"
-            >
-              <span>Portal de Clientes / Staff</span>
-              <ArrowUpRight className="w-3 h-3 opacity-60" />
-            </a>
+            {portalUrl && (
+              <a
+                href={portalUrl}
+                className="text-[#7A7085] hover:text-[#2B2338] underline underline-offset-4 decoration-[#D3CDD9] hover:decoration-[#685A7C] transition-all flex items-center gap-1"
+                title="Acceso exclusivo al sistema de gestión para clientes con contrato y personal de servicio"
+              >
+                <span>Portal de Clientes / Staff</span>
+                <ArrowUpRight className="w-3 h-3 opacity-60" />
+              </a>
+            )}
           </div>
         </div>
       </div>
