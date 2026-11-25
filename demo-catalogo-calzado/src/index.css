@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Colores de la marca: cámbialos aquí para personalizar el sitio.
+   Mantén buen contraste entre el texto y el fondo. */
+@theme {
+  --color-marca: #0f5e57;
+  --color-marca-oscuro: #0a423d;
+  --color-marca-suave: #e3f0ee;
+  --color-acento: #f2b441;
+  --color-fondo: #faf8f4;
+  --color-tinta: #1c1917;
+  --color-tinta-suave: #57534e;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-fondo);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Deja espacio para el encabezado fijo (más alto en celular). */
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+
+  @media (min-width: 48rem) {
+    section[id] {
+      scroll-margin-top: 4.5rem;
+    }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-marca);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

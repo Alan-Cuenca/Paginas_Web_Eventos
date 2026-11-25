@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Menu, X, ArrowUpRight } from 'lucide-react';
 
+// Opcional: si VITE_PORTAL_URL no existe o está vacía, el botón del portal no se muestra.
+const portalUrl = import.meta.env.VITE_PORTAL_URL?.trim();
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -69,14 +72,16 @@ export default function Header() {
           {/* Right Action Area */}
           <div className="hidden lg:flex items-center gap-6">
             {/* SaaS Bridge: Discreet Client / Staff Portal Link */}
-            <a
-              href="http://localhost:5173/portal/eventos-imperial/login"
-              className="text-xs font-medium tracking-wide text-[#7A7085] hover:text-[#2B2338] transition-colors duration-300 flex items-center gap-1.5 py-1 px-2.5 rounded-full hover:bg-black/[0.03]"
-              title="Acceso al portal privado para clientes y equipo de coordinación"
-            >
-              <span>Portal de Clientes / Staff</span>
-              <ArrowUpRight className="w-3 h-3 opacity-60" />
-            </a>
+            {portalUrl && (
+              <a
+                href={portalUrl}
+                className="text-xs font-medium tracking-wide text-[#7A7085] hover:text-[#2B2338] transition-colors duration-300 flex items-center gap-1.5 py-1 px-2.5 rounded-full hover:bg-black/[0.03]"
+                title="Acceso al portal privado para clientes y equipo de coordinación"
+              >
+                <span>Portal de Clientes / Staff</span>
+                <ArrowUpRight className="w-3 h-3 opacity-60" />
+              </a>
+            )}
 
             {/* Primary Action Button */}
             <a
@@ -130,13 +135,15 @@ export default function Header() {
             </a>
 
             <div className="pt-2 border-t border-[#D3CDD9]/40 flex flex-col gap-3">
-              <a
-                href="http://localhost:5173/portal/eventos-imperial/login"
-                className="text-xs font-medium text-[#7A7085] hover:text-[#2B2338] py-1 px-2 flex items-center justify-between"
-              >
-                <span>Portal de Clientes / Staff</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+              {portalUrl && (
+                <a
+                  href={portalUrl}
+                  className="text-xs font-medium text-[#7A7085] hover:text-[#2B2338] py-1 px-2 flex items-center justify-between"
+                >
+                  <span>Portal de Clientes / Staff</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              )}
               <a
                 href="#paquetes"
                 onClick={() => setMobileMenuOpen(false)}

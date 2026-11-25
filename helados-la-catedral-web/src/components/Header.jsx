@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, X, MapPin, ArrowUpRight } from 'lucide-react';
 
+// Opcional: si VITE_PORTAL_URL no existe o está vacía, el botón del portal no se muestra.
+const portalUrl = import.meta.env.VITE_PORTAL_URL?.trim();
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -61,14 +64,16 @@ export default function Header() {
             <span>Bolívar y Juan Montalvo</span>
           </div>
 
-          <a
-            href="http://localhost:5173/portal/helados-la-catedral/login"
-            className="text-xs font-medium tracking-wide text-gray-500 hover:text-[#662D8F] transition-colors duration-200 flex items-center gap-1.5 py-1.5 px-3 rounded-full hover:bg-stone-100/80"
-            title="Portal Institucional de Empleados"
-          >
-            <span>Portal de Empleados</span>
-            <ArrowUpRight className="w-3 h-3 opacity-60" />
-          </a>
+          {portalUrl && (
+            <a
+              href={portalUrl}
+              className="text-xs font-medium tracking-wide text-gray-500 hover:text-[#662D8F] transition-colors duration-200 flex items-center gap-1.5 py-1.5 px-3 rounded-full hover:bg-stone-100/80"
+              title="Portal Institucional de Empleados"
+            >
+              <span>Portal de Empleados</span>
+              <ArrowUpRight className="w-3 h-3 opacity-60" />
+            </a>
+          )}
         </div>
 
         {/* Mobile menu toggle button */}
@@ -114,15 +119,17 @@ export default function Header() {
             Bolívar y Montalvo, Ambato
           </a>
 
-          <div className="pt-2 border-t border-gray-200/50">
-            <a
-              href="http://localhost:5173/portal/helados-la-catedral/login"
-              className="text-xs font-medium text-gray-500 hover:text-[#662D8F] py-1.5 flex items-center justify-between"
-            >
-              <span>Portal de Empleados</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-            </a>
-          </div>
+          {portalUrl && (
+            <div className="pt-2 border-t border-gray-200/50">
+              <a
+                href={portalUrl}
+                className="text-xs font-medium text-gray-500 hover:text-[#662D8F] py-1.5 flex items-center justify-between"
+              >
+                <span>Portal de Empleados</span>
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+              </a>
+            </div>
+          )}
         </div>
       )}
     </header>
